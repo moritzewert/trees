@@ -163,7 +163,7 @@ function removeTreesToPlant() {
 }
 
 function updatePointsDisplay() {
-  pointsDisplay.html(`Points: ${points}`);
+  pointsDisplay.html(`Points this round: ${points} Points overall: ${pointsOverall()}`);
 }
 
 function updateTreesToPlantDisplay() {
@@ -381,4 +381,12 @@ function drawTreeSizeDistribution() {
   rect(largeWithZapfenTreesBar.x, largeWithZapfenTreesBar.y, largeWithZapfenTreesBar.w, largeWithZapfenTreesBar.h);
   fill(0);
   text(largeWithZapfenCount, largeWithZapfenTreesBar.x, largeWithZapfenTreesBar.y, largeWithZapfenTreesBar.w, largeWithZapfenTreesBar.h);
+}
+
+function pointsOverall() {
+  let all = points;
+  pointsHistory.forEach(item => {
+    all += item;
+  });
+  return all;
 }
